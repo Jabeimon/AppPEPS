@@ -11,7 +11,6 @@ services:
       MARIADB_DATABASE: PEPS
     volumes:
       - ./mariadb_data:/var/lib/mysql
-      - ./sql:/docker-entrypoint-initdb.d
       
   phpmyadmin:
     image: phpmyadmin
@@ -23,6 +22,16 @@ services:
       - 9093:80
     depends_on:
       - mariadb
+
+  apache:
+    build: ./apache
+    container_name: apache
+    depends_on:
+    - python
+    restart: unless-stopped
+    ports:
+    - 7777:80
+
   python:
     build: .
     container_name: python

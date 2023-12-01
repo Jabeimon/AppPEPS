@@ -20,13 +20,13 @@
                 method: 'GET'
             };
 
-            fetch("/juego/"+id, requestOptions)
+            fetch("/api/juego/"+id, requestOptions)
                 .then(response => response.json())
                 .then(result => pintarJuego(result))
                 .catch(error => {
                     console.log('error', error)
                     alert("Ha habido un error al recuperar los datos del juego");
-                    location.href="/static/juegos.html";
+                    location.href="/juegos.html";
                 });
 
         }
@@ -54,12 +54,12 @@
                 body: datos
             };
 
-            fetch("/juegos", requestOptions)
+            fetch("/api/juegos", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.status == "OK"){
                         alert("Juego modificado")
-                        location.href="/static/juegos.html"
+                        location.href="/juegos.html"
                     } else {
                         alert("El juego no ha podido ser modificado")
                     }
@@ -83,7 +83,7 @@
         </div>
         <div class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="/static/juegos">Juegos</a>
+                <a class="navbar-item" href="/juegos">Juegos</a>
             </div>
             <div class="navbar-end">
                 <div class="navbar-item">
@@ -104,7 +104,7 @@
                 <label for="foto">Foto</label>
                 <input required type="text" class="input" placeholder="Foto" name="foto" id="foto">
                 <button type="button" onclick="guardar()" class="button is-success mt-2">Guardar</button>
-                <a href="/static/juego.html" class="button is-primary mt-2">Volver</a>
+                <a href="/juego.html" class="button is-primary mt-2">Volver</a>
             </form>
         </div>
     </div>

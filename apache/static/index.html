@@ -19,8 +19,7 @@
             document.getElementsByClassName("error")[0].style.display="none";
             var raw = JSON.stringify({
                 "username": document.getElementById("username").value,
-                "password": document.getElementById("password").value,
-                "profile": document.getElementById("profile").value
+                "password": document.getElementById("password").value
             });
 
             var requestOptions = {
@@ -29,12 +28,11 @@
                 body: raw
             };
 
-            fetch("/registro", requestOptions)
+            fetch("/api/login", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.status=="OK"){
-                        alert("Usuario registrado correctamente");
-                        location.href="index.html";
+                        location.href="juegos.html";
                     } else {
                         document.getElementsByClassName("error")[0].style.display="block";
                     }
@@ -44,11 +42,11 @@
     </script>
 </head>
 <body>
-    <h1>REGISTRO DEL SISTEMA</h1>
+    <h1>BIENVENIDO AL SISTEMA</h1>
     <label>Usuario</label><input type="text" name="username" id="username"><br>
     <label>Clave</label><input type="password" name="password" id="password"><br>
-    <label>Perfil</label><input type="text" disabled name="profile" id="profile" value="normal"><br>
-    <label class="error">Usuario ya existe</label>
+    <label class="error">Usuario/clave erronea</label>
     <button type="button" onclick="conectar()">ENVIAR</button>
+    <button type="button" onclick="location.href='registro.html'">REGISTRARSE</button>
 </body>
 </html>
