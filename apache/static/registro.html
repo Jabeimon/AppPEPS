@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APP PEPS</title>
+    <link rel="stylesheet" href="index.css">
     <style>
         .error{
             display: none;
@@ -44,11 +45,40 @@
     </script>
 </head>
 <body>
-    <h1>REGISTRO DEL SISTEMA</h1>
-    <label>Usuario</label><input type="text" name="username" id="username"><br>
-    <label>Clave</label><input type="password" name="password" id="password"><br>
-    <label>Perfil</label><input type="text" disabled name="profile" id="profile" value="normal"><br>
-    <label class="error">Usuario ya existe</label>
-    <button type="button" onclick="conectar()">ENVIAR</button>
+
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="">
+                    <h2>REGISTRO</h2>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" required name="username" id="username">
+                        <label for="">Usuario</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password" required id="password">
+                        <label for="">Clave</label>
+                    </div>
+                   
+                    <button type="button"  onclick="conectar()">Registrarse</button>
+                    <div class="register">
+                        <p>¿No tienes cuenta? <a onclick="location.href='registro.html'">¡Registrate!</a></p>
+                        <label style="visibility: hidden;">Perfil</label><input type="text" disabled name="profile" id="profile" value="normal" style="visibility: hidden;">
+                        <label class="error">Usuario ya existe</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+   
+
+
 </body>
 </html>
